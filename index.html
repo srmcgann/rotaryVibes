@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>rotary vibes</title>
+    <style>
+      body, html{
+        margin: 0;
+        min-height: 100vh;
+        background: #000;
+        color: #fff;
+        font-family: courier;
+        font-size: 20px;
+        text-align: center;
+      }
+      #title{
+        display: block;
+        margin-top:20;
+        margin-bottom: 0px;
+        font-size: 2em;
+        color: #4f8
+      }
+      .tile{
+        display: inline-block;
+        margin: 3px;
+        vertical-align: top;
+      }
+      .vid{
+        object-fit: fill;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="title">rotary vibes</div>
+    <div id="content"></div>
+    <script>
+      tileWidth = 300
+      vr = 1/(1.777777777777778)
+      content = document.querySelector('#content')
+      vibes = ["sZk04fh.mp4","S4rT5AU.mp4","iue5ZYK.mp4","4XZjps9.mp4","O1aJUxF.mp4","zA5qELm.mp4","2j9gUms.mp4","62L2UIL.mp4","MD9r8wu.mp4","q9xefZC.mp4","IwzpJ5W.mp4","ynKMjfr.mp4"]
+      for(j=2;j--;)vibes.map((v,i) => {
+        let vid = document.createElement('video')
+        vid.className = 'vid'
+        vid.loop = true
+        vid.muted = true
+        vid.oncanplay = () => vid.play()
+        vid.src = 'https://i.imgur.io/' + v
+        let container = document.createElement('div')
+        container.className = 'tile'
+        container.style.width = tileWidth + 'px'
+        container.style.height = (tileWidth*vr) + 'px'
+        container.style.maxWidth = tileWidth + 'px'
+        container.style.maxHeight = (tileWidth*vr) + 'px'
+        container.style.minWidth = tileWidth + 'px'
+        container.style.minHeight = (tileWidth*vr) + 'px'
+        vid.style.width = tileWidth + 'px'
+        vid.style.height = (tileWidth*vr) + 'px'
+        container.appendChild(vid)
+        content.appendChild(container)
+        if(i&&!((i+1)%4)) {
+          let br = document.createElement('br')
+          content.appendChild(br)
+        }
+      })
+    </script>
+  </body>
+</html>
