@@ -46,7 +46,7 @@
         vid.oncanplay = () => vid.play()
 
         url = 'https://i.imgur.com/' + v
-        await fetch(url).then(res=>res.blob()).then(data=> vid.src =  = URL.createObjectURL(data))
+        await fetch(url).then(res=>res.blob()).then(data=> vid.src = URL.createObjectURL(data))
         let container = document.createElement('div')
         container.className = 'tile'
         container.style.width = tileWidth + 'px'
